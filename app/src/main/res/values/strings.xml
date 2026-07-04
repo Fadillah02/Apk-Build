@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PortScanPro</string>
+    <string name="app_tagline">Ethical Hacking Toolkit</string>
+    <string name="network_scan">Network Scanner</string>
+    <string name="device_discovery">Device Discovery</string>
+    <string name="web_vuln">Web Vuln Scanner</string>
+    <string name="reports">Reports</string>
+    <string name="start_scan">Start Scan</string>
+    <string name="stop_scan">Stop Scan</string>
+    <string name="no_results">No results yet</string>
+    <string name="scanning">Scanning…</string>
+    <string name="export_pdf">Export PDF</string>
+    <string name="export_html">Export HTML</string>
+    <string name="target_ip">Target IP / Subnet</string>
+    <string name="scan_history">Scan History</string>
+    <string name="target_url">Target URL</string>
+    <string name="wordlist">Wordlist</string>
+</resources>
