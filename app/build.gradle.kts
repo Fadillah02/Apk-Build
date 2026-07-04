@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.portscanpro"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.portscanpro"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -52,7 +52,7 @@ android {
 
 dependencies {
     // Compose BOM
-    val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
+    val composeBom = platform("androidx.compose:compose-bom:2024.09.00")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
