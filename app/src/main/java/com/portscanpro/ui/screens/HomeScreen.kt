@@ -33,6 +33,9 @@ private val tools = listOf(
     ToolCard("network", "Network\nScanner", "Ping sweep, port scan, service detection", Icons.Default.WifiFind, PrimaryGreen),
     ToolCard("devices", "Device\nDiscovery", "Find hosts, MAC vendor lookup, WiFi scan", Icons.Default.Devices, AccentBlue),
     ToolCard("webvuln", "Web Vuln\nScanner", "Directory brute force, security header check", Icons.Default.Security, WarningOrange),
+    ToolCard("ble", "BLE\nScanner", "Bluetooth Low Energy device scan", Icons.Default.BluetoothSearching, Color(0xFF9C27B0)),
+    ToolCard("osint", "OSINT\nTools", "Whois, DNS lookup, username search", Icons.Default.Search, AccentBlue),
+    ToolCard("capture", "Packet\nCapture", "Live traffic capture via VPN", Icons.Default.Cable, WarningOrange),
     ToolCard("reports", "Reports\n& History", "Export PDF/HTML, view scan history", Icons.Default.Assessment, PrimaryGreen),
 )
 

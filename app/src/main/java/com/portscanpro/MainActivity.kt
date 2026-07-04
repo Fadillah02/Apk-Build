@@ -44,6 +44,9 @@ fun AppNavigation() {
                     "devices" -> navController.navigate("devices")
                     "webvuln" -> navController.navigate("webvuln")
                     "reports" -> navController.navigate("reports")
+                    "ble" -> navController.navigate("ble")
+                    "osint" -> navController.navigate("osint")
+                    "capture" -> navController.navigate("capture")
                 }
             })
         }
@@ -58,6 +61,15 @@ fun AppNavigation() {
         }
         composable("reports") {
             ReportScreen(onBack = { navController.popBackStack() })
+        }
+        composable("ble") {
+            BleScannerScreen(onBack = { navController.popBackStack() })
+        }
+        composable("osint") {
+            OsintScreen(onBack = { navController.popBackStack() })
+        }
+        composable("capture") {
+            PacketCaptureScreen(onBack = { navController.popBackStack() })
         }
     }
 }
