@@ -121,7 +121,7 @@ private fun VulnResultCard(result: VulnResult) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 val icon = when {
                     result.statusCode in 200..299 -> Icons.Default.CheckCircle
-                    result.statusCode in 300..399 -> Icons.Default.Redirect
+                    result.statusCode in 300..399 -> Icons.Default.Http
                     result.statusCode == 401 || result.statusCode == 403 -> Icons.Default.Lock
                     result.statusCode == 500 -> Icons.Default.Error
                     else -> Icons.Default.Info

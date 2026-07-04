@@ -58,7 +58,7 @@ class NetworkScanner {
         }
     }
 
-    suspend fun scanSubnet(subnet: String, portRange: IntRange = listOf(22, 80, 443, 3306, 3389, 8080, 8443).toIntRange()): List<ScanTarget> = withContext(Dispatchers.IO) {
+    suspend fun scanSubnet(subnet: String, ports: List<Int> = listOf(22, 80, 443, 3306, 3389, 8080, 8443)): List<ScanTarget> = withContext(Dispatchers.IO) {
         isCancelled = false
         _state.value = ScanProgress(isScanning = true, message = "Resolving subnet...")
 
@@ -113,7 +113,7 @@ class NetworkScanner {
                 currentTarget = host.ip,
                 message = "Scanning ports on ${host.ip}..."
             )
-            val openPorts = scanPorts(host.ip, portRange)
+            val openPorts = quickPortScan(host.ip, ports)
             results.add(host.copy(openPorts = openPorts, osGuess = guessOs(openPorts)))
         }
 

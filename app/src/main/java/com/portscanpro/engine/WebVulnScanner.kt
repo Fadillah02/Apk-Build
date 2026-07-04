@@ -98,8 +98,8 @@ class WebVulnScanner {
                 val response = client.newCall(request).execute()
 
                 val code = response.code
-                val contentType = response.header("Content-Type", "")
-                val contentLength = response.body?.contentLength() ?: response.header("Content-Length", "0").toLongOrNull() ?: 0
+                val contentType = response.header("Content-Type") ?: ""
+                val contentLength = response.body?.contentLength() ?: (response.header("Content-Length") ?: "0").toLongOrNull() ?: 0
                 val bodyPreview = response.body?.string()?.take(2000) ?: ""
                 val title = extractTitle(bodyPreview)
 
@@ -150,12 +150,12 @@ class WebVulnScanner {
         try {
             val response = client.newCall(Request.Builder().url(baseUrl).head().build()).execute()
             val headers = response.headers
-            checks["missing_security_headers"] = !headers.names.any {
-                it.equals("X-Frame-Options", true) ||
-                it.equals("X-Content-Type-Options", true) ||
-                it.equals("X-XSS-Protection", true) ||
-                it.equals("Content-Security-Policy", true) ||
-                it.equals("Strict-Transport-Security", true)
+            checks["missing_security_headers"] = !headers.names().any { name ->
+                name.equals("X-Frame-Options", ignoreCase = true) ||
+                name.equals("X-Content-Type-Options", ignoreCase = true) ||
+                name.equals("X-XSS-Protection", ignoreCase = true) ||
+                name.equals("Content-Security-Policy", ignoreCase = true) ||
+                name.equals("Strict-Transport-Security", ignoreCase = true)
             }
         } catch (_: Exception) {
             checks["error"] = true
