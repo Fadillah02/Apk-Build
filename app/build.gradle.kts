@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("kotlin-kapt")
 }
 
@@ -42,10 +43,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -80,15 +77,18 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
-// OkHttp for HTTP
-implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    // OkHttp for HTTP
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
-// Gson for JSON
-implementation("com.google.code.gson:gson:2.11.0")
+    // Gson for JSON
+    implementation("com.google.code.gson:gson:2.11.0")
 
-// JSON
-implementation("org.json:json:20240303")
+    // JSON
+    implementation("org.json:json:20240303")
 
     // Konfetti (UI celebration)
     implementation("nl.dionsegijn:konfetti-compose:2.0.4")
+
+    // Debug
+    debugImplementation("androidx.compose.ui:ui-tooling")
 }
